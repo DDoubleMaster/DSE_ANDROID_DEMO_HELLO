@@ -69,6 +69,15 @@
         android:onClick="onClick"
         android:text="@string/sum" />
 
+
+    <Button
+        android:id="@+id/buttonDiv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:onClick="onClickDiv"
+        android:text="@string/div" />
+
     <!-- Текстовое поле для ответа на всю ширину экрана,
          с авторазмером по высоте, по-центру экрана
          и заданным цветом текста -->

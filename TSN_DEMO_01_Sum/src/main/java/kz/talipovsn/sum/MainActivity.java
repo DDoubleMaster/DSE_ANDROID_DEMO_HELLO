@@ -1,6 +1,8 @@
 package kz.talipovsn.sum;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -52,4 +54,29 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("DefaultLocale")
+    public void onClickDiv(View view) {
+        // Объявление локальных переменных
+        double a, b, c;
+
+        try { // НАЧАЛО ЗАЩИЩЕННОГО БЛОКА
+
+            // Чтение данных из компонент
+            a = Double.parseDouble(editText_a.getText().toString().trim());
+            b = Double.parseDouble(editText_b.getText().toString().trim());
+
+            // Основной алгоритм
+            c = a / b;
+
+            // Вывод полученного значения в компонент
+            textView_sum.setText(String.format("%.2f", c));
+
+        } catch (Exception e) { // ЧТО ДЕЛАТЬ ЕСЛИ ВОЗНИКНЕТ ОШИБКА В БЛОКЕ МЕЖДУ "TRY" И "CATCH":
+
+            // Вывод сообщения об ошибке
+            textView_sum.setText("Неверные входные данные для расчета!");
+
+        }  // КОНЕЦ ЗАЩИЩЕННОГО БЛОКА
+
+    }
 }
