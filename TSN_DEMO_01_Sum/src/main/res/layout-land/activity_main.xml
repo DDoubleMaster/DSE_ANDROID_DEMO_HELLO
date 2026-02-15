@@ -30,6 +30,16 @@
         android:gravity="center"
         android:orientation="horizontal">
 
+        <EditText
+            android:id="@+id/editText_x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/x"
+            android:inputType="textPersonName"
+            tools:targetApi="o" />
+
         <!-- Поле ввотда текста c шириной в 10 букв "М",
              с авторазмером по высоте, любые символы
              и сверху отступ в 5 dp -->
@@ -68,15 +78,6 @@
         android:layout_margin="5dp"
         android:onClick="onClick"
         android:text="@string/sum" />
-
-
-    <Button
-        android:id="@+id/buttonDiv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:onClick="onClickDiv"
-        android:text="@string/div" />
 
     <!-- Текстовое поле для ответа на всю ширину экрана,
          с авторазмером по высоте, по-центру экрана
