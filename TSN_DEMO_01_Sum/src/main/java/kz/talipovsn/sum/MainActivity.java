@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    EditText editText_x; // Переменная для доступа к компоненту со значением "x"
     EditText editText_a; // Переменная для доступа к компоненту со значением "a"
     EditText editText_b; // Переменная для доступа к компоненту со значением "b"
     TextView textView_sum; // Переменная для доступа к компоненту со значением результата
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Доступ к компонентам окна
+        editText_x = findViewById(R.id.editText_x);
         editText_a = findViewById(R.id.editText_a);
         editText_b = findViewById(R.id.editText_b);
         textView_sum = findViewById(R.id.textView_sum);
@@ -31,19 +33,29 @@ public class MainActivity extends AppCompatActivity {
     // МЕТОД КНОПКИ РАСЧЕТА
     public void onClick(View v) {
         // Объявление локальных переменных
-        double a, b, c;
+        double x, a, b, y;
 
         try { // НАЧАЛО ЗАЩИЩЕННОГО БЛОКА
 
             // Чтение данных из компонент
+            x = Double.parseDouble(editText_x.getText().toString().trim());
             a = Double.parseDouble(editText_a.getText().toString().trim());
             b = Double.parseDouble(editText_b.getText().toString().trim());
 
             // Основной алгоритм
-            c = a + b;
+            if (x >= 4) {
+                if (a + b == 0){
+                    textView_sum.setText("Сумма A и B не должно быть 0!");
+                    return;
+                }
+                y = 10 * (x + Math.pow(a, 2));
+                y /= b + a;
+            } else{
+                y = 5 * (x + Math.pow(a, 2) + b);
+            }
 
             // Вывод полученного значения в компонент
-            textView_sum.setText(String.valueOf(c));
+            textView_sum.setText(String.valueOf(y));
 
         } catch (Exception e) { // ЧТО ДЕЛАТЬ ЕСЛИ ВОЗНИКНЕТ ОШИБКА В БЛОКЕ МЕЖДУ "TRY" И "CATCH":
 
